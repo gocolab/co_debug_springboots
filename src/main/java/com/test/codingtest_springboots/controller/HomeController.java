@@ -1,9 +1,9 @@
-package com.study.codingtest_springboots.controller;
+package com.test.codingtest_springboots.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.study.codingtest_springboots.dao.HomeDao;
+import com.test.codingtest_springboots.dao.HomeDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

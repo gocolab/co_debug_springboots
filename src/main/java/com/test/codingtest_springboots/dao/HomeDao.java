@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.dao;
+package com.test.codingtest_springboots.dao;
 
 import java.util.HashMap;
 import java.util.Map;

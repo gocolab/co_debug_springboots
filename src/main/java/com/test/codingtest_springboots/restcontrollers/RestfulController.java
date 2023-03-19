@@ -1,8 +1,8 @@
-package com.study.codingtest_springboots.restcontrollers;
+package com.test.codingtest_springboots.restcontrollers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.codingtest_springboots.service.CommonCodeOurService;
+import com.test.codingtest_springboots.service.CommonCodeOurService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

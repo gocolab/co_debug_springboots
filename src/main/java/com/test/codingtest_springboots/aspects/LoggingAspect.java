@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.aspects;
+package com.test.codingtest_springboots.aspects;
 
 import java.util.logging.Logger;
 
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     private Logger logger = Logger.getLogger(getClass().getName());
 
-    // com.study.study_springboots.service.*Service.*(..)
-    @Before(value = "execution(* com.study.study_springboots.service.*Service.insert*(..))")
+    // com.test.codingtest_springboots.service.*Service.*(..)
+    @Before(value = "execution(* com.test.codingtest_springboots.service.*Service.insert*(..))")
     public void logBefore(JoinPoint joinPoint) {
         logger.info("Entering " + joinPoint.getTarget().getClass().getSimpleName()
                 + "'s" + joinPoint.getSignature().getName()); // class name and method name

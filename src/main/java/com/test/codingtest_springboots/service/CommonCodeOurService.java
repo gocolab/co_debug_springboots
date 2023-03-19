@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.service;
+package com.test.codingtest_springboots.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.study.codingtest_springboots.dao.CommonCodeOurDao;
-import com.study.codingtest_springboots.utils.Paginations;
+import com.test.codingtest_springboots.dao.CommonCodeOurDao;
+import com.test.codingtest_springboots.utils.Paginations;
 
 @Service
 @Transactional

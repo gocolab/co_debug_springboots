@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.utils;
+package com.test.codingtest_springboots.utils;
 
 public class Paginations {
     private int pageScale = 10; // 페이지당 게시물 수

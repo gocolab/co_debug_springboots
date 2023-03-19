@@ -1,9 +1,9 @@
-package com.study.codingtest_springboots.service;
+package com.test.codingtest_springboots.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.study.codingtest_springboots.dao.AttachFileDao;
+import com.test.codingtest_springboots.dao.AttachFileDao;
 
 @Service
 public class AttachFileService {

@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.controller;
+package com.test.codingtest_springboots.controller;
 
 import java.util.ArrayList;
 

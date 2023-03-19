@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.beans;
+package com.test.codingtest_springboots.beans;
 
 public class BoardBean { // vo, dao, dto
 	private String title;

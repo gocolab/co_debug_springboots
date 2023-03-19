@@ -1,11 +1,11 @@
-package com.study.codingtest_springboots.service;
+package com.test.codingtest_springboots.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.stereotype.Service;
 
-import com.study.codingtest_springboots.beans.BoardBean;
+import com.test.codingtest_springboots.beans.BoardBean;
 
 @Service
 public class DataInfors {

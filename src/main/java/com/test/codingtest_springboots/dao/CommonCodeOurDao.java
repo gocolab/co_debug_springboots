@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.dao;
+package com.test.codingtest_springboots.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 // @Repository
 @Component
-public class AttachFileDao {
+public class CommonCodeOurDao {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
@@ -35,5 +35,4 @@ public class AttachFileDao {
         Object result = sqlSessionTemplate.delete(sqlMapId, dataMap);
         return result;
     }
-
 }

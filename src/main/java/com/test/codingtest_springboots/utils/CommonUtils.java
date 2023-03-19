@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.utils;
+package com.test.codingtest_springboots.utils;
 
 import java.io.File;
 import java.util.UUID;

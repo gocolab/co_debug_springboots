@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.controller;
+package com.test.codingtest_springboots.controller;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,8 +24,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.study.codingtest_springboots.service.CommonCodeOurService;
-import com.study.codingtest_springboots.utils.CommonUtils;
+import com.test.codingtest_springboots.service.CommonCodeOurService;
+import com.test.codingtest_springboots.utils.CommonUtils;
 
 @Controller
 @RequestMapping(value = "/commonCodeOur")

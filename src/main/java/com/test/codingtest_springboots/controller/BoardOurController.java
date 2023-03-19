@@ -1,4 +1,4 @@
-package com.study.codingtest_springboots.controller;
+package com.test.codingtest_springboots.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.study.codingtest_springboots.beans.BoardBean;
-import com.study.codingtest_springboots.service.DataInfors;
+import com.test.codingtest_springboots.beans.BoardBean;
+import com.test.codingtest_springboots.service.DataInfors;
 
 // * Cast 
 // - use bootstrap
