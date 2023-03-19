@@ -13,7 +13,6 @@
     <div>Board</div>
     <div> <a href="/board/form">/board/form BoardController form() /board/form.jsp</a> </div>
     <div> <a href="/boards/list">/boards BoardsController list() /boards/list.jsp</a> </div>
-    <div> <a href="/jstlformats">jstl_formats.jsp</a> </div>
     <div> <a href="/commonCode/">/commonCode/list.jsp</a> </div>
     <div> <a href="/commonCode/listPagination/1">/commonCode/list_pagination.jsp</a> </div>
     <div> <a href="/charts/google_charts_scatter">//charts/google_charts_scatter.jsp</a> </div>

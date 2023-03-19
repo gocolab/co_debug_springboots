@@ -53,7 +53,7 @@ public class CommonCodeController {
         bufferedWriter.flush();
 
         commonCodeService.insertOne(params);
-        modelAndView.setViewName("commonCode_our/list");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
@@ -71,7 +71,7 @@ public class CommonCodeController {
             }
 
         }
-        modelAndView.setViewName("commonCode_our/list");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
@@ -114,19 +114,19 @@ public class CommonCodeController {
         Object resultMap = commonCodeService.insertWithFilesAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
 
-        modelAndView.setViewName("commonCode_our/list");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
     @RequestMapping(value = { "/form" }, method = RequestMethod.GET)
     public ModelAndView form(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        modelAndView.setViewName("commonCode_our/edit");
+        modelAndView.setViewName("commonCodes/edit");
         return modelAndView;
     }
 
     @RequestMapping(value = { "/formMulti" }, method = RequestMethod.GET)
     public ModelAndView formMulti(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        modelAndView.setViewName("commonCode_our/editMulti");
+        modelAndView.setViewName("commonCodes/editMulti");
         return modelAndView;
     }
 
@@ -136,7 +136,7 @@ public class CommonCodeController {
         params.put("COMMON_CODE_ID", uniqueId);
         Object resultMap = commonCodeService.deleteAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("commonCode_our/list");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
@@ -148,14 +148,14 @@ public class CommonCodeController {
         params.put("deleteMultis", deleteMultis);
         Object resultMap = commonCodeService.deleteMulti(params);
 
-        modelAndView.setViewName("commonCode_our/list");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
     @RequestMapping(value = { "/update" }, method = RequestMethod.POST)
     public ModelAndView update(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         commonCodeService.updateOne(params);
-        modelAndView.setViewName("commonCode_our/list");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
@@ -163,7 +163,7 @@ public class CommonCodeController {
     public ModelAndView list(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         Object resultMap = commonCodeService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("commonCode_our/list");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
@@ -174,7 +174,7 @@ public class CommonCodeController {
         params.put("pageScale", 10);
         Object resultMap = commonCodeService.getListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("commonCode_our/list_pagination");
+        modelAndView.setViewName("commonCodes/list_pagination");
         return modelAndView;
     }
 
@@ -184,7 +184,7 @@ public class CommonCodeController {
         params.put("COMMON_CODE_ID", uniqueId);
         Object resultMap = commonCodeService.getOne(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("commonCode_our/edit");
+        modelAndView.setViewName("commonCodes/edit");
         return modelAndView;
     }
 
@@ -195,7 +195,7 @@ public class CommonCodeController {
         params.put("SOURCE_UNIQUE_SEQ", uniqueId);
         Object resultMap = commonCodeService.getOneWithAttachFiles(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("commonCode_our/editMulti");
+        modelAndView.setViewName("commonCodes/editMulti");
         return modelAndView;
     }
 }
