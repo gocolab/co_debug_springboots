@@ -24,15 +24,15 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.test.codingtest_springboots.service.CommonCodeOurService;
+import com.test.codingtest_springboots.service.CommonCodeService;
 import com.test.codingtest_springboots.utils.CommonUtils;
 
 @Controller
-@RequestMapping(value = "/commonCodeOur")
-public class CommonCodeOurController {
+@RequestMapping(value = "/commonCode")
+public class CommonCodeController {
 
     @Autowired
-    CommonCodeOurService commonCodeOurService;
+    CommonCodeService commonCodeService;
 
     @Autowired
     CommonUtils commonUtils;
@@ -52,7 +52,7 @@ public class CommonCodeOurController {
         bufferedWriter.write(new String(multipartFile.getBytes()));
         bufferedWriter.flush();
 
-        commonCodeOurService.insertOne(params);
+        commonCodeService.insertOne(params);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }
@@ -111,7 +111,7 @@ public class CommonCodeOurController {
         }
         params.put("attachfiles", attachfiles);
 
-        Object resultMap = commonCodeOurService.insertWithFilesAndGetList(params);
+        Object resultMap = commonCodeService.insertWithFilesAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
 
         modelAndView.setViewName("commonCode_our/list");
@@ -134,7 +134,7 @@ public class CommonCodeOurController {
     public ModelAndView delete(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
             ModelAndView modelAndView) {
         params.put("COMMON_CODE_ID", uniqueId);
-        Object resultMap = commonCodeOurService.deleteAndGetList(params);
+        Object resultMap = commonCodeService.deleteAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
@@ -146,7 +146,7 @@ public class CommonCodeOurController {
         // modelAndView.addObject("resultMap", resultMap);
         String[] deleteMultis = httpServletRequest.getParameterMap().get("COMMON_CODE_ID");
         params.put("deleteMultis", deleteMultis);
-        Object resultMap = commonCodeOurService.deleteMulti(params);
+        Object resultMap = commonCodeService.deleteMulti(params);
 
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
@@ -154,14 +154,14 @@ public class CommonCodeOurController {
 
     @RequestMapping(value = { "/update" }, method = RequestMethod.POST)
     public ModelAndView update(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        commonCodeOurService.updateOne(params);
+        commonCodeService.updateOne(params);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }
 
     @RequestMapping(value = { "/list", "/", "" }, method = RequestMethod.GET)
     public ModelAndView list(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        Object resultMap = commonCodeOurService.getList(params);
+        Object resultMap = commonCodeService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
@@ -172,7 +172,7 @@ public class CommonCodeOurController {
             ModelAndView modelAndView) {
         params.put("currentPage", Integer.parseInt(currentPage));
         params.put("pageScale", 10);
-        Object resultMap = commonCodeOurService.getListWithPagination(params);
+        Object resultMap = commonCodeService.getListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/list_pagination");
         return modelAndView;
@@ -182,7 +182,7 @@ public class CommonCodeOurController {
     public ModelAndView edit(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
             ModelAndView modelAndView) {
         params.put("COMMON_CODE_ID", uniqueId);
-        Object resultMap = commonCodeOurService.getOne(params);
+        Object resultMap = commonCodeService.getOne(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/edit");
         return modelAndView;
@@ -193,7 +193,7 @@ public class CommonCodeOurController {
             ModelAndView modelAndView) {
         params.put("COMMON_CODE_ID", uniqueId);
         params.put("SOURCE_UNIQUE_SEQ", uniqueId);
-        Object resultMap = commonCodeOurService.getOneWithAttachFiles(params);
+        Object resultMap = commonCodeService.getOneWithAttachFiles(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/editMulti");
         return modelAndView;

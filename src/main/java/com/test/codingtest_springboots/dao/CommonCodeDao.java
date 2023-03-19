@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 // @Repository
 @Component
-public class CommonCodeOurDao {
+public class CommonCodeDao {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 

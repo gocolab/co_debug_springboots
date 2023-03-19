@@ -2,7 +2,7 @@ package com.test.codingtest_springboots.restcontrollers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.test.codingtest_springboots.service.CommonCodeOurService;
+import com.test.codingtest_springboots.service.CommonCodeService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +32,7 @@ public class RestfulController {
     }
 
     @Autowired
-    CommonCodeOurService commonCodeOurService;
+    CommonCodeService commonCodeService;
 
     // currentPage : 1
     @RequestMapping(value = "/api/v1/requestParamsWithDB", method = RequestMethod.POST)
@@ -41,7 +41,7 @@ public class RestfulController {
         params.put("pageScale", 10);
 
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap = (Map<String, Object>) commonCodeOurService.getListWithPagination(params);
+        resultMap = (Map<String, Object>) commonCodeService.getListWithPagination(params);
 
         return resultMap;
     }

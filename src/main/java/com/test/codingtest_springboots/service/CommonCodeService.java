@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.test.codingtest_springboots.dao.CommonCodeOurDao;
+import com.test.codingtest_springboots.dao.CommonCodeDao;
 import com.test.codingtest_springboots.utils.Paginations;
 
 @Service
 @Transactional
-public class CommonCodeOurService {
+public class CommonCodeService {
     @Autowired
-    CommonCodeOurDao commonCodeOurDao;
+    CommonCodeDao commonCodeDao;
 
     @Autowired
     AttachFileService attachFileService;
@@ -55,50 +55,50 @@ public class CommonCodeOurService {
     }
 
     public Object getTotal(Object dataMap) {
-        String sqlMapId = "CommonCodeOur.selectTotal";
+        String sqlMapId = "CommonCode.selectTotal";
 
-        Object result = commonCodeOurDao.getOne(sqlMapId, dataMap);
+        Object result = commonCodeDao.getOne(sqlMapId, dataMap);
         return result;
     }
 
     public Object getList(Object dataMap) {
-        String sqlMapId = "CommonCodeOur.selectListByUID";
-        Object result = commonCodeOurDao.getList(sqlMapId, dataMap);
+        String sqlMapId = "CommonCode.selectListByUID";
+        Object result = commonCodeDao.getList(sqlMapId, dataMap);
         return result;
     }
 
     public Object getOne(Object dataMap) {
-        String sqlMapId = "CommonCodeOur.selectByUID";
+        String sqlMapId = "CommonCode.selectByUID";
 
-        Object result = commonCodeOurDao.getOne(sqlMapId, dataMap);
+        Object result = commonCodeDao.getOne(sqlMapId, dataMap);
         return result;
     }
 
     public Object updateOne(Object dataMap) {
-        String sqlMapId = "CommonCodeOur.updateByUID";
+        String sqlMapId = "CommonCode.updateByUID";
 
-        Object result = commonCodeOurDao.update(sqlMapId, dataMap);
+        Object result = commonCodeDao.update(sqlMapId, dataMap);
         return result;
     }
 
     public Object insertOne(Object dataMap) {
-        String sqlMapId = "CommonCodeOur.insertWithUID";
+        String sqlMapId = "CommonCode.insertWithUID";
 
-        Object result = commonCodeOurDao.insert(sqlMapId, dataMap);
+        Object result = commonCodeDao.insert(sqlMapId, dataMap);
         return result;
     }
 
     public Object delete(Object dataMap) {
-        String sqlMapId = "CommonCodeOur.deleteByUID";
+        String sqlMapId = "CommonCode.deleteByUID";
 
-        Object result = commonCodeOurDao.delete(sqlMapId, dataMap);
+        Object result = commonCodeDao.delete(sqlMapId, dataMap);
         return result;
     }
 
     public Object deleteMulti(Object dataMap) {
-        String sqlMapId = "CommonCodeOur.deleteMultiByUIDs";
+        String sqlMapId = "CommonCode.deleteMultiByUIDs";
 
-        Object result = commonCodeOurDao.delete(sqlMapId, dataMap);
+        Object result = commonCodeDao.delete(sqlMapId, dataMap);
         return result;
     }
 }

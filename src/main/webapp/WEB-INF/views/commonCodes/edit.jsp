@@ -20,7 +20,7 @@
 			<script>
 
 <<<<<<< HEAD
-<form id="action-form" action="/commonCodeOur/${form_action}" method="post" enctype ="multipart/form-data">
+<form id="action-form" action="/commonCode/${form_action}" method="post" enctype ="multipart/form-data">
 <%-- hard code --%>
 <input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111" >
 <input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111" >
@@ -143,7 +143,7 @@
 					<c:set var="form_action" value="insert" />
 				</c:if>
 
-				<form id="action-form" action="/commonCodeOur/${form_action}" method="post"
+				<form id="action-form" action="/commonCode/${form_action}" method="post"
 					enctype="multipart/form-data">
 					<input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111">
 					<input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111">

@@ -18,19 +18,19 @@ import com.test.codingtest_springboots.service.DataInfors;
 // - use bootstrap
 // - 항목 : title, content,userName, date
 // - CRUD : 
-//   + list.jsp(/board) -> view.jsp(/board_our/view) -> list.jsp(/board_our/list)
-//   + list.jsp(/board) -> form.jsp(/board_our/form) -> list.jsp(/board_our/save) with Post
-//   + view.jsp(/board_our/view) -> edit.jsp(/board_our/edit) -> list.jsp(/board_our/save)
+//   + list.jsp(/board) -> view.jsp(/boards/view) -> list.jsp(/boards/list)
+//   + list.jsp(/board) -> form.jsp(/boards/form) -> list.jsp(/boards/save) with Post
+//   + view.jsp(/boards/view) -> edit.jsp(/boards/edit) -> list.jsp(/boards/save)
 @Controller
-@RequestMapping(value = "/board_our")
-public class BoardOurController {
+@RequestMapping(value = "/boards")
+public class BoardsController {
 
     @Autowired
     DataInfors dataInfors;
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView edit(ModelAndView modelAndView) {
-        modelAndView.setViewName("board_our/edit");
+        modelAndView.setViewName("boards/edit");
         return modelAndView;
     }
 
@@ -42,7 +42,7 @@ public class BoardOurController {
         ArrayList<BoardBean> boardList = dataInfors.getDataListWithBoardBean();
         modelAndView.addObject("boardList", boardList);
 
-        modelAndView.setViewName("board_our/list");
+        modelAndView.setViewName("boards/list");
         return modelAndView; // --> Dispatcher Servlet
     }
 
@@ -57,13 +57,13 @@ public class BoardOurController {
         BoardBean boardBean = dataInfors.getDataWithMamberBean();
         modelAndView.addObject("boardBean", boardBean);
 
-        modelAndView.setViewName("board_our/view");
+        modelAndView.setViewName("boards/view");
         return modelAndView;
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public ModelAndView form(ModelAndView modelAndView) {
-        modelAndView.setViewName("board_our/form");
+        modelAndView.setViewName("boards/form");
         return modelAndView;
     }
 
@@ -72,7 +72,7 @@ public class BoardOurController {
     // ModelAndView modelAndView) {
     public ModelAndView save(BoardBean boardBean, ModelAndView modelAndView) {
         // insert biz
-        modelAndView.setViewName("board_our/list");
+        modelAndView.setViewName("boards/list");
         return modelAndView;
     }
 }
