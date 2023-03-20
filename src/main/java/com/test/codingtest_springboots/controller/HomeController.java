@@ -19,30 +19,6 @@ public class HomeController {
         return "main";
     }
 
-    @RequestMapping(value = "/home") // http://localhost:8080/homejsp
-    public void home() {
-        Object result = homeDao.getList();
-        int i = 0;
-    }
-
-    @RequestMapping(value = "/homejsp") // http://localhost:8080/homejsp
-    public String homejsp() {
-        int i = 0;
-        return "home";
-    }
-
-    @RequestMapping(value = "/homehtml") // http://localhost:8080/homehtml
-    public String homehtml() {
-        int i = 0;
-        return "home.html";
-    }
-
-    @RequestMapping(value = "/jstlformats")
-    public String jstlformats() {
-        int i = 0;
-        return "jstl_formats";
-    }
-
     @RequestMapping(value = "/ajaxs/jQuery_ajaxReturnhellow")
     public String jQuery_ajaxReturnhellow() {
         int i = 0;

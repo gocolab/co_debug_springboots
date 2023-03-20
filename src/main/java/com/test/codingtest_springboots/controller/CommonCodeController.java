@@ -159,7 +159,7 @@ public class CommonCodeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/list", "/", "" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/list" }, method = RequestMethod.GET)
     public ModelAndView list(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         Object resultMap = commonCodeService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
@@ -174,7 +174,7 @@ public class CommonCodeController {
         params.put("pageScale", 10);
         Object resultMap = commonCodeService.getListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("commonCodes/list_pagination");
+        modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
 
