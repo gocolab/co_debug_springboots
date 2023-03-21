@@ -8,10 +8,10 @@
         SELECT * 
         FROM CIP_COMMON_CODE
         <![CDATA[ 
-        where ORDER_NUMBER >  0
+        where 1 = 1
+        and COMMON_CODE_ID IS NOT NULL
         ]]>
         <if test="pageScale != null">
-            order by COMMON_CODE_ID
             <!-- 첫번째 리스트 -->
             LIMIT #{pageBegin}, #{pageScale}
         </if>

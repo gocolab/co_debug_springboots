@@ -16,8 +16,12 @@
 						<nav aria-label="Page navigation example">
 							<ul class="pagination">
 								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Previous">
+									<a class="page-link" href="#" aria-label="laquo">
 										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li class="page-item">
+									<a class="page-link" href="#" aria-label="Previous">
 										<span class="sr-only">Previous</span>
 									</a>
 								</li>
@@ -29,8 +33,12 @@
 								</c:forEach>
 								<li class="page-item">
 									<a class="page-link" href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
 										<span class="sr-only">Next</span>
+									</a>
+								</li>
+								<li class="page-item">
+									<a class="page-link" href="#" aria-label="raquo">
+										<span aria-hidden="true">&raquo;</span>
 									</a>
 								</li>
 							</ul>
@@ -38,7 +46,6 @@
 					</div>
 					<div class="col row">
 						<div class="col">
-
 							<form action="/commonCode/formMulti" method="get">
 								<button class="btn btn-info">Form with File</button>
 							</form>
@@ -61,32 +68,34 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${resultMap.resultList}" var="resultData" varStatus="loop">
-									<tr>
-										<td class="text-center">
-											<input type="checkbox" class="checkbox" name="COMMON_CODE_ID"
-												value="${resultData.COMMON_CODE_ID}" />
-										</td>
-										<td>
-											<button class="btn btn-link viewPopup"
-												formaction="/commonCode/editMulti/${resultData.COMMON_CODE_ID}"
-												formmethod="get">${resultData.COMMON_CODE_ID}</button>
-										</td>
-										<td>${resultData.NAME}</td>
-										<td class="text-center">
-											<c:if test="${!empty resultData.PARENT_COMMON_CODE_ID}">
-												<div class="form-group">
-													${resultData.PARENT_COMMON_CODE_ID}
-												</div>
-											</c:if>
-										</td>
-										<td>
-											<button class="btn btn-outline-info"
-												formaction="/commonCode/editMulti/delete/${resultData.COMMON_CODE_ID}"
-												formmethod="post">Delete</button>
-										</td>
-									</tr>
-								</c:forEach>
+								<form>
+									<c:forEach items='${resultMap.resultList}' var='resultData' varStatus=" loop">
+										<tr>
+											<td class=" text-center">
+												<input type="checkbox" class="checkbox" name="COMMON_CODE_ID"
+													value="${resultData.COMMON_CODE_ID}" />
+											</td>
+											<td>
+												<button class="btn btn-link viewPopup"
+													formaction="/commonCode/editMulti/${resultData.COMMON_CODE_ID}">${resultData.COMMON_CODE_ID}</button>
+											</td>
+											<td>${resultData.NAME}</td>
+											<td class="text-center">
+												<c:if test="${!empty resultData.PARENT_COMMON_CODE_ID}">
+													<div class="form-group">
+														${resultData.PARENT_COMMON_CODE_ID}
+													</div>
+												</c:if>
+											</td>
+											<td>
+												<button class="btn btn-outline-info"
+													formaction="/commonCode/delete/${resultData.COMMON_CODE_ID}"
+													formmethod="post">Delete</button>
+											</td>
+										</tr>
+									</c:forEach>
+									<input type="hidden" name="currentPage" value="${_pagination.currentPage}" />
+								</form>
 							</tbody>
 						</table>
 					</div>

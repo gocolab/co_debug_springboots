@@ -31,7 +31,7 @@ public class CommonCodeService {
 
     public Object deleteAndGetList(Object dataMap) {
         Object result = this.delete(dataMap);
-        result = this.getList(dataMap);
+        result = this.getListWithPagination(dataMap);
         return result;
     }
 
@@ -39,17 +39,25 @@ public class CommonCodeService {
         // insert files
         Object result = attachFileService.insertMulti(dataMap);
         result = this.insertOne(dataMap);
-        result = this.getList(dataMap);
+        result = this.getListWithPagination(dataMap);
         return result;
     }
 
     public Object getListWithPagination(Object dataMap) {
-        Map<String, Object> result = new HashMap<String, Object>();
         int totalCount = (int) this.getTotal(dataMap);
-        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+
+        Object objCurrentPage = ((Map<String, Object>) dataMap).get("currentPage");
+        int currentPage = 1;
+        if (objCurrentPage != null) {
+            currentPage = Integer.parseInt((String) objCurrentPage);
+        }
         Paginations paginations = new Paginations(totalCount, currentPage);
+
+        Map<String, Object> result = new HashMap<String, Object>();
         result.put("paginations", paginations);
+
         ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin());
+        ((Map<String, Object>) dataMap).put("pageScale", paginations.getPageScale());
         result.put("resultList", this.getList(dataMap));
         return result;
     }

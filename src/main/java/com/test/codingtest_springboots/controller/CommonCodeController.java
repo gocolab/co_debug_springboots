@@ -79,37 +79,7 @@ public class CommonCodeController {
     public ModelAndView insertMulti(MultipartHttpServletRequest multipartHttpServletRequest,
             @RequestParam Map<String, Object> params, ModelAndView modelAndView) throws IOException {
 
-        Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
-        String absolutePath = commonUtils.getRelativeToAbsolutePath("src/main/resources/static/files/");
-
-        Map attachfile = null;
-        List attachfiles = new ArrayList();
-        String physicalFileName = commonUtils.getUniqueSequence();
-        String storePath = absolutePath + physicalFileName + File.separator;
-        File newPath = new File(storePath);
-        newPath.mkdir(); // create directory
-        while (fileNames.hasNext()) {
-            String fileName = fileNames.next();
-            MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
-            String originalFilename = multipartFile.getOriginalFilename();
-
-            if (originalFilename != null && multipartFile.getSize() > 0) {
-                String storePathFileName = storePath + originalFilename;
-                multipartFile.transferTo(new File(storePathFileName));
-
-                // add SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME in HashMap
-                attachfile = new HashMap<>();
-                attachfile.put("ATTACHFILE_SEQ", commonUtils.getUniqueSequence());
-                attachfile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID"));
-                attachfile.put("ORGINALFILE_NAME", originalFilename);
-                attachfile.put("PHYSICALFILE_NAME", physicalFileName);
-                attachfile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));
-                attachfile.put("MODIFIER_SEQ", params.get("MODIFIER_SEQ"));
-
-                attachfiles.add(attachfile);
-            }
-        }
-        params.put("attachfiles", attachfiles);
+        params.put("attachfiles", commonUtils.getFilesInformation(multipartHttpServletRequest, params));
 
         Object resultMap = commonCodeService.insertWithFilesAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
@@ -170,8 +140,7 @@ public class CommonCodeController {
     @RequestMapping(value = { "/listPagination/{currentPage}" }, method = RequestMethod.GET)
     public ModelAndView listPagination(@RequestParam Map<String, Object> params, @PathVariable String currentPage,
             ModelAndView modelAndView) {
-        params.put("currentPage", Integer.parseInt(currentPage));
-        params.put("pageScale", 10);
+        params.put("currentPage", currentPage);
         Object resultMap = commonCodeService.getListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCodes/list");
