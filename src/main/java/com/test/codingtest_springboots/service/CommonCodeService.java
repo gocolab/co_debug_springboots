@@ -35,6 +35,14 @@ public class CommonCodeService {
         return result;
     }
 
+    public Object updateWithFilesAndGetList(Object dataMap) {
+        // insert files
+        Object result = attachFileService.deleteAndinsertMulti(dataMap);
+        result = this.updateOne(dataMap);
+        result = this.getListWithPagination(dataMap);
+        return result;
+    }
+
     public Object insertWithFilesAndGetList(Object dataMap) {
         // insert files
         Object result = attachFileService.insertMulti(dataMap);

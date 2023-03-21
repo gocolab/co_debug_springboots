@@ -4,55 +4,14 @@
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 		<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-			<div class="container">
+			<div class="container mt-1">
 				<!-- Form list -->
 				<div class="row">
 					<c:set var="_pagination" value="${resultMap.paginations}" />
-					<div class="col">
-						총 갯수 : ${_pagination.totalCount}
-					</div>
-					<div class="col">
-						<!-- pagination -->
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="laquo">
-										<span aria-hidden="true">&laquo;</span>
-									</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Previous">
-										<span class="sr-only">Previous</span>
-									</a>
-								</li>
-								<!-- for(int i=0;i> 9;i++){} -->
-								<c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
-									<li class="page-item"><a class="page-link"
-											href="/commonCode/listPagination/${i}">${i}</a>
-									</li>
-								</c:forEach>
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Next">
-										<span class="sr-only">Next</span>
-									</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="raquo">
-										<span aria-hidden="true">&raquo;</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
 					<div class="col row">
 						<div class="col">
 							<form action="/commonCode/formMulti" method="get">
 								<button class="btn btn-info">Form with File</button>
-							</form>
-						</div>
-						<div class="col">
-							<form action="/commonCode/deleteMulti" method="post">
-								<button class="btn btn-info">Multi delete</button>
 							</form>
 						</div>
 					</div>
@@ -60,7 +19,6 @@
 						<table class="table table-striped table-hover table-bordered">
 							<thead>
 								<tr class="text-center">
-									<th><input type="checkbox" id="selectall" /></th>
 									<th>코드 ID with Files</th>
 									<th>코드명</th>
 									<th>부모 코드 ID</th>
@@ -71,10 +29,6 @@
 								<form>
 									<c:forEach items='${resultMap.resultList}' var='resultData' varStatus=" loop">
 										<tr>
-											<td class=" text-center">
-												<input type="checkbox" class="checkbox" name="COMMON_CODE_ID"
-													value="${resultData.COMMON_CODE_ID}" />
-											</td>
 											<td>
 												<button class="btn btn-link viewPopup"
 													formaction="/commonCode/editMulti/${resultData.COMMON_CODE_ID}">${resultData.COMMON_CODE_ID}</button>
@@ -99,5 +53,31 @@
 							</tbody>
 						</table>
 					</div>
+					<div class="col">
+						총 갯수 : ${_pagination.totalCount}
+					</div>
+					<div class="col">
+						<!-- pagination -->
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+								<li class="page-item">
+									<a class="page-link" href="#" aria-label="Previous">
+										<span class="sr-only">Previous</span>
+									</a>
+								</li>
+								<c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
+									<li class="page-item"><a class="page-link"
+											href="/commonCode/listPagination/${i}">${i}</a>
+									</li>
+								</c:forEach>
+								<li class="page-item">
+									<a class="page-link" href="#" aria-label="Next">
+										<span class="sr-only">Next</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+
 				</div>
 				<!-- /.table-responsive -->

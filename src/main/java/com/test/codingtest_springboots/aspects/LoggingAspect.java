@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+// @Component
 public class LoggingAspect {
     private Logger logger = Logger.getLogger(getClass().getName());
 

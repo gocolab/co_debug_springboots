@@ -26,4 +26,10 @@
         </foreach>
     </insert>
 
+    <delete id="deleteByParentID" parameterType="Map">
+        DELETE FROM CIP_ATTACHFILE
+        WHERE SOURCE_UNIQUE_SEQ = #{SOURCE_UNIQUE_SEQ}
+    </delete>
+
+
 </mapper>

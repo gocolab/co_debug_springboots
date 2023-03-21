@@ -32,12 +32,13 @@ public class CommonUtils {
         Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
         String absolutePath = this.getRelativeToAbsolutePath("src/main/resources/static/files/");
 
-        Map attachfile = null;
         List attachfiles = new ArrayList();
         String physicalFileName = this.getUniqueSequence();
         String storePath = absolutePath + physicalFileName + File.separator;
         File newPath = new File(storePath);
         newPath.mkdir(); // create directory
+
+        Map attachfile = null;
         while (fileNames.hasNext()) {
             String fileName = fileNames.next();
             MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);

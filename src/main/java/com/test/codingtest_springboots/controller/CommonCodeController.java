@@ -61,16 +61,11 @@ public class CommonCodeController {
     public ModelAndView updateMulti(MultipartHttpServletRequest multipartHttpServletRequest,
             @RequestParam Map<String, Object> params, ModelAndView modelAndView) throws IOException {
 
-        Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
+        params.put("attachfiles", commonUtils.getFilesInformation(multipartHttpServletRequest, params));
 
-        while (fileNames.hasNext()) {
-            String value = (String) params.get(fileNames.next());
-            System.out.print(value); // DB 저장이 되어 있다.
-            if (value != null) {
-                // originalFilename 와 있는지 여부 확인
-            }
+        Object resultMap = commonCodeService.updateWithFilesAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
 
-        }
         modelAndView.setViewName("commonCodes/list");
         return modelAndView;
     }
@@ -137,8 +132,9 @@ public class CommonCodeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/listPagination/{currentPage}" }, method = RequestMethod.GET)
-    public ModelAndView listPagination(@RequestParam Map<String, Object> params, @PathVariable String currentPage,
+    @RequestMapping(value = { "/listPagination/{currentPage}", "" }, method = { RequestMethod.GET, RequestMethod.POST })
+    public ModelAndView listPagination(@RequestParam Map<String, Object> params,
+            @PathVariable(required = false) String currentPage,
             ModelAndView modelAndView) {
         params.put("currentPage", currentPage);
         Object resultMap = commonCodeService.getListWithPagination(params);
