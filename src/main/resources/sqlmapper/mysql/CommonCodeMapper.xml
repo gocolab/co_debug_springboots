@@ -43,7 +43,7 @@
     <!-- call CommonCode.deleteByUID -->
     <delete id="deleteByUID" parameterType="Map">
         DELETE FROM CIP_COMMON_CODE
-        WHERE COMMON_CODE_ID = #{COMMON_CODE_ID}
+        WHERE COMMON_CODE_ID = 1
     </delete>
 
     <!-- call CommonCode.deleteMultiByUIDs -->

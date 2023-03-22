@@ -89,7 +89,6 @@ public class CommonCodeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/formMulti" }, method = RequestMethod.GET)
     public ModelAndView formMulti(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         modelAndView.setViewName("commonCodes/editMulti");
         return modelAndView;

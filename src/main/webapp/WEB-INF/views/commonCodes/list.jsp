@@ -44,7 +44,7 @@
 											<td>
 												<button class="btn btn-outline-info"
 													formaction="/commonCode/delete/${resultData.COMMON_CODE_ID}"
-													formmethod="post">Delete</button>
+													formmethod="get">Delete</button>
 											</td>
 										</tr>
 									</c:forEach>
