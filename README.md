@@ -1,7 +1,7 @@
 # 프로젝트형 코딩테스트
 - https://github.com/yojulab/codingtest_springboots
 ## 환경 준비
-- 대상 git repository branch : https://github.com/yojulab/codingtest_springboots/tree/codingtest_01
+- 대상 git repository branch codingtest_01 : https://github.com/yojulab/codingtest_springboots
 - 본인 github로 Clone : Fork 사용(화면 왼쪽 상단)
 ## Quest
 ### 1. setup to connect Database
