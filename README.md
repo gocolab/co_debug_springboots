@@ -23,4 +23,4 @@
 #### hint 
 - src/main/webapp/WEB-INF/views/commonCodes/list.jsp
 - src/main/resources/sqlmapper/mysql/CommonCodeMapper.xml
-#### 확인 방법 : http://localhost:8080/commonCode/delete/
+#### 확인 방법 : http://localhost:8080/commonCode/delete/Use_YN
